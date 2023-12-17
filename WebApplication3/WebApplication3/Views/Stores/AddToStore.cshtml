@@ -1,0 +1,16 @@
+﻿@model WebApplication3.Models.AddToStore
+@{
+    ViewBag.Title = "AddToStore";
+}
+
+<h2>AddToStore</h2>
+
+@using (Html.BeginForm("AddToStore","Stores"))
+            {
+                <div class="form-group">
+                    @Html.DropDownListFor(m=>m.BookId,new SelectList(Model.books,"BookId","Title"),new {@class="form-control"})
+                </div>
+                <button type="submit" class="btn btn-dark">Add</button>
+                @Html.HiddenFor(m=>m.StoreId)
+            }
+

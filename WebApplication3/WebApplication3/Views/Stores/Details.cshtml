@@ -1,0 +1,40 @@
+﻿@model WebApplication3.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Store</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Add book to store", "AddToStore", new { id = Model.Id })
+
+</p>
+
+<div class="container">
+
+    <h2>Books you can buy in this store</h2>
+    <ul>
+
+        @foreach (var item in Model.Books)
+        {
+            <li><a href="/Books/Details/@item.BookId">@item.Title</a></li>
+        }
+    </ul>
+</div>
